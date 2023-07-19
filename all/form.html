@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>PHP File Uploads</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+	<h1>PHP File Upload</h1>
+	<form action="process-form.php" method="post" enctype="multipart/form-data">
+	<label for="img">Image File</label>
+	<input type="file" id="image" name="image">
+
+	<label for="file2">Another File</label>
+	<input type="file" id="file2" name="file2">
+
+	<button>Upload</button>
+</form>
+</body>
+</html>
