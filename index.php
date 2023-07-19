@@ -38,8 +38,25 @@ if (isset($_SESSION["user_id"])) {
 		<a href="login.php"><button>login</button></a>
 		<a href="signup.html"><button>signup</button></a>
 		<?php endif;?>
-    <h1>Message Board</h1>
 
+<?php if (isset($_SESSION["user_id"])) {?>
+<h2>Add a Message</h2>
+    <form method="POST" action="" enctype="multipart/form-data">
+        <label for="title">title:</label>
+        <input type="text" name="title" required><br>
+
+        <label for="message">Message:</label>
+        <textarea name="message" rows="4" required></textarea><br>
+
+        <label for="file">File:</label>
+        <input type="file" name="file[]" multiple><br>
+
+        <input type="submit" name="submit" value="Post Message">
+    </form>
+<?php }?>
+
+
+    <h1>Message Board</h1>
 
 <?php
 
@@ -160,7 +177,6 @@ if ($result->num_rows > 0) {
                     </form>";
 			echo "<hr>";
 		}
-		echo "<hr>";
 	}
 } else {
 	echo "<p>No messages yet.</p>";
@@ -169,18 +185,6 @@ if ($result->num_rows > 0) {
 $mysqli->close();
 ?>
 
-    <h2>Add a Message</h2>
-    <form method="POST" action="" enctype="multipart/form-data">
-        <label for="title">title:</label>
-        <input type="text" name="title" required><br>
 
-        <label for="message">Message:</label>
-        <textarea name="message" rows="4" required></textarea><br>
-
-        <label for="file">File:</label>
-        <input type="file" name="file"><br>
-
-        <input type="submit" name="submit" value="Post Message">
-    </form>
 </body>
 </html>
